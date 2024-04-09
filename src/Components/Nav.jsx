@@ -53,7 +53,14 @@ const Nav = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <Link to={"/"} className="flex items-center">
+            <img
+              className="w-[5rem] h-[5rem]"
+              src="/easydeals.png"
+              alt="logo"
+            />
+            <span className="text-2xl font-bold">Easy Deals</span>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">

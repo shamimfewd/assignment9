@@ -1,27 +1,41 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import { toast } from "react-toastify";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, user } = useContext(AuthContext);
+
+  const [registerError, setRegisterError] = useState("");
+  const [successRegister, SteSuccessRegister] = useState("");
+
   const handleRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
     const photo = e.target.photo.value;
     const password = e.target.password.value;
-    console.log(name, email, photo, password);
+    setRegisterError("");
+    SteSuccessRegister("");
 
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        SteSuccessRegister(result);
+        toast.success(
+          "Congratulations! Your account has been successfully created🎉"
+        );
       })
       .catch((error) => {
-        console.log(error);
+        setRegisterError(error);
+        toast("This Email Already Exist. Please Login");
       });
   };
   return (
     <div className="mx-auto flex justify-center">
+      <Helmet>
+        <title>EasyDeals - Register</title>
+      </Helmet>
       <form
         onSubmit={handleRegister}
         className="border p-4 rounded-xl my-10 w-1/3"
@@ -75,11 +89,12 @@ const Register = () => {
 
         <input
           type="submit"
-          className="btn w-full bg-green-600"
+          className="btn w-full bg-[#2B3440] text-white"
           value="Register"
         />
 
         <p>
+          if you have an account. Please {""}
           <Link to={"/login"} className="text-blue-600 font-bold">
             go login
           </Link>
