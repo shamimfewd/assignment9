@@ -19,34 +19,60 @@ const AuthProvider = ({ children }) => {
 
   const auth = getAuth(app);
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
+  console.log(user);
+
+  // create users
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  // login users
   const signInUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const signOutUser = () => {
-    signOut(auth);
-  };
-
+  // login with google
   const signInGoogle = () => {
+    setLoading(true);
     signInWithPopup(auth, googleProvider);
   };
+
+  // login with github
   const gitHubLeLogin = () => {
+    setLoading(true);
     signInWithPopup(auth, gitHubProvider);
   };
 
-  useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
+  // logout users
+  const signOutUser = () => {
+    setUser(null)
+    setLoading(true);
+    signOut(auth);
+  };
 
-    return () => {
-      unSubscribe();
-    };
+  // // observer
+
+  // useEffect(() => {
+  //   const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+  //     setUser(currentUser);
+  //     setLoading(false);
+  //   });
+
+  //   return () => {
+  //     unSubscribe();
+  //   };
+  // }, []);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      }
+    });
   }, []);
 
   const authInfo = {
@@ -56,6 +82,7 @@ const AuthProvider = ({ children }) => {
     signOutUser,
     signInGoogle,
     gitHubLeLogin,
+    loading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

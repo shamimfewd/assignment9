@@ -1,43 +1,96 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
+// import { LuEyeOff } from "react-icons/lu";
+// import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+// import { useNavigate, useLocation } from "react-router-dom";
+
+import { useForm } from "react-hook-form";
 
 const Register = () => {
-  const { createUser, user } = useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
 
-  const [registerError, setRegisterError] = useState("");
-  const [successRegister, SteSuccessRegister] = useState("");
+  // ----------------------------
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handleRegister = (e) => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const photo = e.target.photo.value;
-    const password = e.target.password.value;
-    setRegisterError("");
-    SteSuccessRegister("");
-
-    createUser(email, password)
-      .then((result) => {
-        SteSuccessRegister(result);
-        toast.success(
-          "Congratulations! Your account has been successfully created🎉"
-        );
-      })
-      .catch((error) => {
-        setRegisterError(error);
-        toast("This Email Already Exist. Please Login");
-      });
+  const onSubmit = (data) => {
+    const { email, password } = data;
+    createUser(email, password).then((result) => {
+      console.log(result);
+    });
   };
+
+  // ----------------------------------
+
+  // const [registerError, setRegisterError] = useState("");
+  // const [successRegister, SteSuccessRegister] = useState("");
+  // const [showPassword, setShowPassword] = useState(false);
+
+  // const navigate = useNavigate();
+  // const location = useLocation();
+
+  // const handleShowPas = () => {
+  //   setShowPassword(!showPassword);
+  // };
+
+  // const handleRegister = (e) => {
+  //   e.preventDefault();
+  //   const name = e.target.name.value;
+  //   const email = e.target.email.value;
+  //   const photo = e.target.photo.value;
+  //   const password = e.target.password.value;
+  //   setRegisterError("");
+  //   SteSuccessRegister("");
+
+  //   if (password.length < 6) {
+  //     setRegisterError("password should be 6");
+  //     return;
+  //   } else if (!/[a-z]/.test(password)) {
+  //     setRegisterError(
+  //       "your password should have a seast one lowercase character"
+  //     );
+  //     return;
+  //   } else if (!/[A-Z]/.test(password)) {
+  //     setRegisterError(
+  //       "your password should have at least one Uppercase character"
+  //     );
+  //     return;
+  //   } else if (!/[@$!%^*?#&]/.test(password)) {
+  //     setRegisterError(
+  //       "your password should have at least one special characters"
+  //     );
+  //     return;
+  //   } else if (!/[1-9]/.test(password)) {
+  //     setRegisterError("your password should have as least one number");
+  //     return;
+  //   }
+  //   createUser(email, password)
+  //     .then((result) => {
+  //       SteSuccessRegister(result);
+  //       toast.success(
+  //         "Congratulations! Your account has been successfully created🎉"
+  //       );
+  //       navigate(location?.state ? location.state : "/");
+  //     })
+  //     .catch((error) => {
+  //       setRegisterError(error);
+  //       toast("This Email Already Exist. Please Login");
+  //     });
+  // };
   return (
     <div className="mx-auto flex justify-center">
       <Helmet>
         <title>EasyDeals - Register</title>
       </Helmet>
+      {/* onSubmit={handleRegister} */}
       <form
-        onSubmit={handleRegister}
+        onSubmit={handleSubmit(onSubmit)}
         className="border p-4 rounded-xl my-10 w-1/3"
       >
         <label htmlFor="name">Name</label>
@@ -46,9 +99,11 @@ const Register = () => {
           type="text"
           placeholder="Name"
           className="input input-bordered w-full "
-          name="name"
-          required
+          {...register("fullName", { required: true })}
         />
+        {errors.fullName && (
+          <span className="text-red-600">This field is required</span>
+        )}
         <br />
         <br />
         <label htmlFor="email">Email</label>
@@ -57,9 +112,11 @@ const Register = () => {
           type="email"
           placeholder="Email"
           className="input input-bordered w-full "
-          name="email"
-          required
+          {...register("email", { required: true })}
         />
+        {errors.email && (
+          <span className="text-red-600">This field is required</span>
+        )}
         <br />
         <br />
         <label htmlFor="photo">Photo</label>
@@ -68,21 +125,38 @@ const Register = () => {
           type="text"
           placeholder="Photo"
           className="input input-bordered w-full "
-          name="photo"
-          required
+          {...register("image")}
         />
+
         <br />
 
         <br />
         <label htmlFor="password">Password</label>
         <br />
-        <input
-          type="password"
-          placeholder="Password"
-          className="input input-bordered w-full "
-          name="password"
-          required
-        />
+        {/*   type={showPassword ? "text" : "password"} */}
+        <div className="flex relative">
+          <input
+            type="text"
+            placeholder="Password"
+            className="input input-bordered w-full "
+            {...register("password", { required: true })}
+          />
+          {errors.password && (
+            <span className="text-red-600">This field is required</span>
+          )}
+
+          {/* <span
+            onClick={handleShowPas}
+            className="cursor-pointer absolute right-4 top-3"
+          >
+            {showPassword ? (
+              <IoMdEye className="text-2xl" />
+            ) : (
+              <IoMdEyeOff className="text-2xl" />
+            )}
+          </span> */}
+        </div>
+        {/* <p className="text-orange-600 mt-2"> {registerError}</p> */}
 
         <br />
         <br />

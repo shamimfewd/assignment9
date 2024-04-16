@@ -1,0 +1,114 @@
+[
+  {
+    "image": "https://www.facilitiesnet.com/resources/editorial/2016/MCC_Enclave_007-Edit-Edit.jpg",
+    "estate_title": "Modern Office Building",
+    "id": 123456789,
+    "segment_name": "Office buildings",
+    "description": "A state-of-the-art office building equipped with the latest technology and amenities.",
+    "price": 10000000,
+    "status": "sale",
+    "area": "50000",
+    "location": "Central Business District, XYZ City",
+    "facilities": ["conference rooms", "cafeteria", "parking"]
+  },
+  {
+    "image": "https://imageio.forbes.com/specials-images/dam/imageserve/1114491356/960x0.jpg?height=460&width=711&fit=bounds",
+    "estate_title": "Retail Space in Prime Location",
+    "id": 234567890,
+    "segment_name": "Retail spaces",
+    "description": "Prime retail space situated in a bustling shopping district with high foot traffic.",
+    "price": 5000000,
+    "status": "rent",
+    "area": "10000",
+    "location": "Main Street, ABC Town",
+    "facilities": ["storefront windows", "storage area", "restrooms"]
+  },
+  {
+    "image": "https://media.rightmove.co.uk/dir/crop/10:9-16:9/202k/201512/134718548/201512_10AKingsway_IMG_00_0000_max_476x317.jpeg",
+    "estate_title": "Large Warehouse Complex",
+    "id": 345678901,
+    "segment_name": "Warehouses",
+    "description": "A sprawling warehouse complex suitable for storage and distribution operations.",
+    "price": 8000000,
+    "status": "sale",
+    "area": "75000",
+    "location": "Industrial Park, LMN City",
+    "facilities": ["loading docks", "office space", "security system"]
+  },
+  {
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-e6EvRmw4bHvmBZQnk33fgZrqUhGzogR8vJY-1Q_-Lw&s",
+    "estate_title": "Industrial Manufacturing Facility",
+    "id": 456789012,
+    "segment_name": "Industrial facilities",
+    "description": "An industrial facility equipped for manufacturing operations with ample production space.",
+    "price": 12000000,
+    "status": "sale",
+    "area": "60000",
+    "location": "Industrial Zone, PQR Town",
+    "facilities": [
+      "heavy-duty machinery",
+      "warehouse space",
+      "employee facilities"
+    ]
+  },
+  {
+    "image": "https://www.jb-commercial-furniture.co.uk/wp-content/uploads/2020/09/JB-Commercial-hero-image-1024x734-1.jpeg",
+    "estate_title": "Gourmet Restaurant with Outdoor Dining",
+    "id": 567890123,
+    "segment_name": "Restaurants",
+    "description": "A renowned gourmet restaurant offering exquisite cuisine and a charming outdoor dining area.",
+    "price": 3000000,
+    "status": "sale",
+    "area": "5000",
+    "location": "Culinary District, UVW City",
+    "facilities": ["commercial kitchen", "bar area", "patio seating"]
+  },
+  {
+    "image": "https://static01.nyt.com/images/2023/04/18/multimedia/18concert-halls-04-kpzt/18concert-halls-04-kpzt-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+    "estate_title": "Entertainment Venue with Live Music",
+    "id": 678901234,
+    "segment_name": "Entertainment venues",
+    "description": "An exciting entertainment venue featuring live music performances and a vibrant atmosphere.",
+    "price": 2000000,
+    "status": "rent",
+    "area": "8000",
+    "location": "Entertainment District, QRS Town",
+    "facilities": ["stage", "dance floor", "VIP lounge"]
+  },
+  {
+    "image": "https://5.imimg.com/data5/HA/ZI/SO/SELLER-968369/office-space-for-rent-noida-500x500.png",
+    "estate_title": "Executive Office Suite",
+    "id": 789012345,
+    "segment_name": "Office buildings",
+    "description": "Luxurious executive office suite in a prestigious office building with panoramic city views.",
+    "price": 1500000,
+    "status": "sale",
+    "area": "2000",
+    "location": "Financial District, DEF City",
+    "facilities": ["private offices", "meeting rooms", "reception area"]
+  },
+  {
+    "image": "https://www.brixmor.com/-/media/brixmor/short-term-popup/short-termpop-up-shop-images-files-and-icons/pop-up-large-photo-694x428-px.jpg?h=428&iar=0&w=694&hash=2F31D9DE04D7F1CCB33B2746D9A439CE",
+    "estate_title": "Boutique Retail Space",
+    "id": 890123456,
+    "segment_name": "Retail spaces",
+    "description": "Charming boutique retail space ideal for specialty shops and unique retail concepts.",
+    "price": 700000,
+    "status": "sale",
+    "area": "1500",
+    "location": "Quaint Street, GHI Town",
+    "facilities": ["display windows", "storage area", "changing rooms"]
+  },
+  {
+    "image": "https://www.lg.com/content/dam/channel/wcms/global/newsroom/lg-story/beyond-news/topgolf-transforms-face-of-large-venue-entertainment-with-lg-commercial-displays/Topgolf-03-1-D.jpg",
+    "estate_title": "Event Hall and Banquet Facility",
+    "id": 901234567,
+    "segment_name": "Entertainment venues",
+    "description": "Versatile event hall and banquet facility suitable for weddings, corporate events, and parties.",
+    "price": 4000000,
+    "status": "sale",
+    "area": "10000",
+    "location": "Event Avenue, JKL City",
+    "facilities": ["ballroom", "catering kitchen", "audiovisual equipment"]
+  }
+]

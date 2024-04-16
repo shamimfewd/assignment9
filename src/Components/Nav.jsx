@@ -1,18 +1,21 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import { CiLogin, CiLogout } from "react-icons/ci";
 
 const Nav = () => {
   const { user, signOutUser } = useContext(AuthContext);
+  console.log(user);
 
+  // logout user
   const handleSignOut = () => {
-    console.log("ok");
     signOutUser()
       .then(console.log("logout"))
       .catch((error) => {
         console.log(error);
       });
   };
+
   return (
     <div className="max-w-7xl mx-auto">
       <div className="navbar bg-base-100">
@@ -42,14 +45,10 @@ const Nav = () => {
                 <NavLink to={"/"}>Home</NavLink>
               </li>
               <li>
-                <NavLink to={"/contact"}>Contact</NavLink>
+                <NavLink to={"/updateprofile"}>Update Profile</NavLink>
               </li>
               <li>
                 <NavLink to={"/register"}>Register</NavLink>
-              </li>
-
-              <li>
-                <NavLink to={"/login"}>Login</NavLink>
               </li>
             </ul>
           </div>
@@ -67,16 +66,20 @@ const Nav = () => {
             <li>
               <NavLink to={"/"}>Home</NavLink>
             </li>
+            {user ? (
+              <li>
+                <NavLink to={"/updateprofile"}>Update Profile</NavLink>
+              </li>
+            ) : null}
 
-            <li>
-              <NavLink to={"/contact"}>Contact</NavLink>
-            </li>
+            {/* {user ? (
+              <li>
+                <NavLink to={"/about"}>About</NavLink>
+              </li>
+            ) : null} */}
 
             <li>
               <NavLink to={"/register"}>Register</NavLink>
-            </li>
-            <li>
-              <NavLink to={"/login"}>Login</NavLink>
             </li>
           </ul>
         </div>
@@ -95,17 +98,14 @@ const Nav = () => {
               </div>
 
               <button onClick={handleSignOut} className="btn">
-                Log Out
+                <CiLogout className="text-xl" /> Log Out
               </button>
             </>
           ) : (
             <>
-              <img
-                className="w-10 h-10 rounded-full cursor-pointer "
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbnLy2TDFa9Gl29wA4q8nihtL1lDK9iuez6Hn885ePAskQ84QA7ZRsqzg56-cwjJS2VGk&usqp=CAU"
-                alt="img"
-              />
-              <Link to={"/login"}>Login</Link>
+              <Link to={"/login"} className="btn">
+                <CiLogin className="text-xl" /> <span>Login</span>
+              </Link>
             </>
           )}
         </div>
