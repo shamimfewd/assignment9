@@ -5,7 +5,6 @@ import { CiLogin, CiLogout } from "react-icons/ci";
 
 const Nav = () => {
   const { user, signOutUser } = useContext(AuthContext);
-  console.log(user);
 
   // logout user
   const handleSignOut = () => {
@@ -88,11 +87,14 @@ const Nav = () => {
             <>
               <div
                 className="tooltip tooltip-bottom"
-                data-tip={user.displayName}
+                data-tip={user?.displayName || "Name not found"}
               >
                 <img
                   className="w-10 h-10 rounded-full cursor-pointer "
-                  src={user.photoURL}
+                  src={
+                    user?.photoURL ||
+                    "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+                  }
                   alt="image"
                 />
               </div>

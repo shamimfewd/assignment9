@@ -1,16 +1,22 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 // import { LuEyeOff } from "react-icons/lu";
-// import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 // import { useNavigate, useLocation } from "react-router-dom";
 
 import { useForm } from "react-hook-form";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [registerError, setRegisterError] = useState("");
+  const [successRegister, SteSuccessRegister] = useState("");
+
 
   // ----------------------------
   const {
@@ -19,18 +25,49 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
+  const handleShowPas = () => {
+    setShowPassword(!showPassword);
+  };
+
+  // update profile
   const onSubmit = (data) => {
-    const { email, password } = data;
-    createUser(email, password).then((result) => {
-      console.log(result);
-    });
+    const { email, password, image, fullName } = data;
+
+    setRegisterError("");
+    SteSuccessRegister("");
+
+    if (password.length < 6) {
+      setRegisterError("password should be 6 characters");
+      return;
+    } else if (!/[a-z]/.test(password)) {
+      setRegisterError(
+        "your password should have at least one lower case character"
+      );
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      setRegisterError(
+        "your password should have at least one Uppercase character"
+      );
+      return;
+    }
+
+    createUser(email, password)
+      .then(() => {
+        updateUserProfile(fullName, image).then((result) => {
+          SteSuccessRegister(result);
+          toast.success(
+            "Congratulations! Your account has been successfully created🎉"
+          );
+          navigate("/");
+        });
+      })
+      .catch((error) => {
+        setRegisterError(error);
+        toast("This Email Already Exist. Please Login");
+      });
   };
 
   // ----------------------------------
-
-  // const [registerError, setRegisterError] = useState("");
-  // const [successRegister, SteSuccessRegister] = useState("");
-  // const [showPassword, setShowPassword] = useState(false);
 
   // const navigate = useNavigate();
   // const location = useLocation();
@@ -136,16 +173,17 @@ const Register = () => {
         {/*   type={showPassword ? "text" : "password"} */}
         <div className="flex relative">
           <input
-            type="text"
+            type={showPassword ? "text" : "password"}
             placeholder="Password"
             className="input input-bordered w-full "
             {...register("password", { required: true })}
           />
+
           {errors.password && (
             <span className="text-red-600">This field is required</span>
           )}
 
-          {/* <span
+          <span
             onClick={handleShowPas}
             className="cursor-pointer absolute right-4 top-3"
           >
@@ -154,9 +192,9 @@ const Register = () => {
             ) : (
               <IoMdEyeOff className="text-2xl" />
             )}
-          </span> */}
+          </span>
         </div>
-        {/* <p className="text-orange-600 mt-2"> {registerError}</p> */}
+        <p className="text-orange-600 mt-2"> {registerError}</p>
 
         <br />
         <br />
