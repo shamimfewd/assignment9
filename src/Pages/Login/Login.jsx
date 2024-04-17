@@ -78,12 +78,12 @@ const Login = () => {
           <title>EasyDeals - Login</title>
         </Helmet>
 
-        <div className="border rounded-xl p-4 w-1/3 my-10">
+        <div className="border rounded-xl p-4 lg:w-1/3 md:w-1/3 my-10">
           <form onSubmit={handleSubmit(onSubmit)} className="">
             <h2 className="text-3xl font-bold">Login Here</h2>
             <br />
             <br />
-            <label htmlFor="email">Email</label>
+            <label className="font-bold text-[#000000b0]" htmlFor="email">Email</label>
             <br />
             <input
               type="email"
@@ -91,10 +91,10 @@ const Login = () => {
               className="input input-bordered w-full"
               {...register("email", { required: true })}
             />
-            {errors.email && <span>This field is required</span>}
+            {errors.email && <span className="text-red-600">This field is required</span>}
             <br />
             <br />
-            <label htmlFor="password">Password</label>
+            <label className="font-bold text-[#000000b0]" htmlFor="password">Password</label>
             <br />
 
             <div className="flex relative">
@@ -114,9 +114,9 @@ const Login = () => {
                 className="cursor-pointer absolute right-4 top-3"
               >
                 {showPassword ? (
-                  <IoMdEye className="text-2xl" />
+                  <IoMdEye className="text-2xl text-[rgba(0,0,0,0.84)]" />
                 ) : (
-                  <IoMdEyeOff className="text-2xl" />
+                  <IoMdEyeOff className="text-2xl text-[rgba(0,0,0,0.84)]" />
                 )}
               </span>
             </div>

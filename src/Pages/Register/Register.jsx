@@ -15,7 +15,6 @@ const Register = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [registerError, setRegisterError] = useState("");
-  
 
   // ----------------------------
   const {
@@ -33,7 +32,6 @@ const Register = () => {
     const { email, password, image, fullName } = data;
 
     setRegisterError("");
-    
 
     if (password.length < 6) {
       setRegisterError("password should be 6 characters");
@@ -67,68 +65,20 @@ const Register = () => {
 
   // ----------------------------------
 
-  // const navigate = useNavigate();
-  // const location = useLocation();
-
-  // const handleShowPas = () => {
-  //   setShowPassword(!showPassword);
-  // };
-
-  // const handleRegister = (e) => {
-  //   e.preventDefault();
-  //   const name = e.target.name.value;
-  //   const email = e.target.email.value;
-  //   const photo = e.target.photo.value;
-  //   const password = e.target.password.value;
-  //   setRegisterError("");
-  //   SteSuccessRegister("");
-
-  //   if (password.length < 6) {
-  //     setRegisterError("password should be 6");
-  //     return;
-  //   } else if (!/[a-z]/.test(password)) {
-  //     setRegisterError(
-  //       "your password should have a seast one lowercase character"
-  //     );
-  //     return;
-  //   } else if (!/[A-Z]/.test(password)) {
-  //     setRegisterError(
-  //       "your password should have at least one Uppercase character"
-  //     );
-  //     return;
-  //   } else if (!/[@$!%^*?#&]/.test(password)) {
-  //     setRegisterError(
-  //       "your password should have at least one special characters"
-  //     );
-  //     return;
-  //   } else if (!/[1-9]/.test(password)) {
-  //     setRegisterError("your password should have as least one number");
-  //     return;
-  //   }
-  //   createUser(email, password)
-  //     .then((result) => {
-  //       SteSuccessRegister(result);
-  //       toast.success(
-  //         "Congratulations! Your account has been successfully created🎉"
-  //       );
-  //       navigate(location?.state ? location.state : "/");
-  //     })
-  //     .catch((error) => {
-  //       setRegisterError(error);
-  //       toast("This Email Already Exist. Please Login");
-  //     });
-  // };
   return (
     <div className="mx-auto flex justify-center">
       <Helmet>
         <title>EasyDeals - Register</title>
       </Helmet>
-      {/* onSubmit={handleRegister} */}
+
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="border p-4 rounded-xl my-10 w-1/3"
+        className="border p-4 rounded-xl my-10 lg:w-1/3 md:w-2/3"
       >
-        <label htmlFor="name">Name</label>
+        <div>
+          <h2 className="text-3xl font-bold mb-6 text-[#000000d5]">Register</h2>
+        </div>
+        <label className="font-bold text-[#000000b0]" htmlFor="name">Full Name</label>
         <br />
         <input
           type="text"
@@ -141,7 +91,7 @@ const Register = () => {
         )}
         <br />
         <br />
-        <label htmlFor="email">Email</label>
+        <label className="font-bold text-[#000000b0]" htmlFor="email">Email</label>
         <br />
         <input
           type="email"
@@ -154,7 +104,7 @@ const Register = () => {
         )}
         <br />
         <br />
-        <label htmlFor="photo">Photo</label>
+        <label className="font-bold text-[#000000b0]" htmlFor="photo">Photo</label>
         <br />
         <input
           type="text"
@@ -166,9 +116,9 @@ const Register = () => {
         <br />
 
         <br />
-        <label htmlFor="password">Password</label>
+        <label className="font-bold text-[#000000b0]" htmlFor="password">Password</label>
         <br />
-        {/*   type={showPassword ? "text" : "password"} */}
+
         <div className="flex relative">
           <input
             type={showPassword ? "text" : "password"}
@@ -177,20 +127,21 @@ const Register = () => {
             {...register("password", { required: true })}
           />
 
-          {errors.password && (
-            <span className="text-red-600">This field is required</span>
-          )}
-
           <span
             onClick={handleShowPas}
             className="cursor-pointer absolute right-4 top-3"
           >
             {showPassword ? (
-              <IoMdEye className="text-2xl" />
+              <IoMdEye className="text-2xl text-[#000000da]" />
             ) : (
-              <IoMdEyeOff className="text-2xl" />
+              <IoMdEyeOff className="text-2xl text-[#000000da]" />
             )}
           </span>
+
+          <br />
+          {errors.password && (
+            <span className="text-red-600">This field is required</span>
+          )}
         </div>
         <p className="text-orange-600 mt-2"> {registerError}</p>
 
