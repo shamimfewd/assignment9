@@ -30,13 +30,14 @@ const WishList = () => {
           name="my_tabs_2"
           role="tab"
           className="tab"
-          aria-label="wish list"
+          aria-label="wishlist"
           checked
         />
         <div
           role="tabpanel"
           className="tab-content bg-base-100 border-base-300 rounded-box p-6"
         >
+          <p>property {showProperty.length}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6">
             {showProperty.map((property, index) => (
               <div key={index}>
@@ -68,7 +69,7 @@ const WishList = () => {
                       </ul>
                     </div>
 
-                    <Link className="" to={`/`}>
+                    <Link className="" to={`/estate/${property.id}`}>
                       <button className="btn w-full bg-[#2B3440] text-white ">
                         View Details
                       </button>
@@ -80,8 +81,19 @@ const WishList = () => {
           </div>
         </div>
 
-        
-       
+        <input
+          type="radio"
+          name="my_tabs_2"
+          role="tab"
+          className="tab"
+          aria-label="content"
+        />
+        <div
+          role="tabpanel"
+          className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+        >
+          nothing content here
+        </div>
       </div>
     </div>
   );

@@ -43,9 +43,19 @@ const Nav = () => {
               <li>
                 <NavLink to={"/"}>Home</NavLink>
               </li>
-              <li>
-                <NavLink to={"/updateprofile"}>Update Profile</NavLink>
-              </li>
+
+              {user && (
+                <li>
+                  <NavLink to={"/updateprofile"}>Update Profile</NavLink>
+                </li>
+              )}
+
+              {user && (
+                <li>
+                  <NavLink to={"/wishlist"}>Wish List</NavLink>
+                </li>
+              )}
+
               <li>
                 <NavLink to={"/register"}>Register</NavLink>
               </li>
@@ -72,9 +82,11 @@ const Nav = () => {
               </li>
             )}
 
-            <li>
-              <NavLink to={"/wishlist"}>Wish List</NavLink>
-            </li>
+            {user && (
+              <li>
+                <NavLink to={"/wishlist"}>Wish List</NavLink>
+              </li>
+            )}
 
             <li>
               <NavLink to={"/register"}>Register</NavLink>
