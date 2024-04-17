@@ -30,11 +30,14 @@ const AuthProvider = ({ children }) => {
 
   // update user profile
   const updateUserProfile = (name, image) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: image,
     });
   };
+
+ 
 
   // login users
   const signInUser = (email, password) => {
@@ -57,33 +60,24 @@ const AuthProvider = ({ children }) => {
   // logout users
   const signOutUser = () => {
     setUser(null);
-    setLoading(false);
+    // setLoading(false);
     signOut(auth);
   };
 
   // // observer
 
-  // useEffect(() => {
-  //   const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-  //     setUser(currentUser);
-  //     setLoading(false);
-  //   });
-
-  //   return () => {
-  //     unSubscribe();
-  //   };
-  // }, []);
-
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        setLoading(false);
       }
+      setLoading(false);
     });
 
-    return () => unsubscribe;
-  }, []);
+    return () => {
+      unsubscribe;
+    };
+  }, [loading]);
 
   const authInfo = {
     user,

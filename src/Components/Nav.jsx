@@ -65,17 +65,14 @@ const Nav = () => {
             <li>
               <NavLink to={"/"}>Home</NavLink>
             </li>
-            {user ? (
+
+            {user && (
               <li>
                 <NavLink to={"/updateprofile"}>Update Profile</NavLink>
               </li>
-            ) : null}
+            )}
 
-            {/* {user ? (
-              <li>
-                <NavLink to={"/about"}>About</NavLink>
-              </li>
-            ) : null} */}
+            
 
             <li>
               <NavLink to={"/register"}>Register</NavLink>

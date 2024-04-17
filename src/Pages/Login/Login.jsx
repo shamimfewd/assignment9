@@ -30,32 +30,13 @@ const Login = () => {
     const { email, password } = data;
 
     signInUser(email, password)
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
+        navigate(location?.state || "/");
       })
       .catch((error) => {
         console.log(error.message);
       });
   };
-  // -----------------------------------
-
-  // const handleLogin = (e) => {
-  //   e.preventDefault();
-  //   const email = e.target.email.value;
-  //   const password = e.target.password.value;
-
-  //   signInUser(email, password)
-  //     .then((result) => {
-  //       console.log(result.user);
-  //       e.target.reset();
-
-  //       // navigate-----------
-  //       navigate(location?.state ? location.state : "/");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error.message);
-  //     });
-  // };
 
   // google login
   const handleGoogleLogin = () => {
@@ -86,6 +67,7 @@ const Login = () => {
     socialProvider().then((result) => {
       if (result.user) {
         navigate(location?.state || "/");
+        // navigate("/");
       }
     });
   };
@@ -97,7 +79,6 @@ const Login = () => {
         </Helmet>
 
         <div className="border rounded-xl p-4 w-1/3 my-10">
-          {/* onSubmit={handleLogin} */}
           <form onSubmit={handleSubmit(onSubmit)} className="">
             <h2 className="text-3xl font-bold">Login Here</h2>
             <br />
@@ -107,7 +88,7 @@ const Login = () => {
             <input
               type="email"
               placeholder="Email"
-              className="input input-bordered w-full "
+              className="input input-bordered w-full"
               {...register("email", { required: true })}
             />
             {errors.email && <span>This field is required</span>}
@@ -116,50 +97,29 @@ const Login = () => {
             <label htmlFor="password">Password</label>
             <br />
 
-
-
             <div className="flex relative">
-          <input
-            type={showPassword ? "text" : "password"}
-            placeholder="Password"
-            className="input input-bordered w-full "
-            {...register("password", { required: true })}
-          />
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                className="input input-bordered w-full "
+                {...register("password", { required: true })}
+              />
 
-          {errors.password && (
-            <span className="text-red-600">This field is required</span>
-          )}
-
-          <span
-            onClick={handleShowPas}
-            className="cursor-pointer absolute right-4 top-3"
-          >
-            {showPassword ? (
-              <IoMdEye className="text-2xl" />
-            ) : (
-              <IoMdEyeOff className="text-2xl" />
-            )}
-          </span>
-        </div>
-
-            {/* <input
-              type="password"
-              placeholder="Password"
-              className="input input-bordered w-full "
-              {...register("password", { required: true })}
-            />
-
-            <span
-              onClick={handleShowPas}
-              className="cursor-pointer absolute right-4 top-3"
-            >
-              {showPassword ? (
-                <IoMdEye className="text-2xl" />
-              ) : (
-                <IoMdEyeOff className="text-2xl" />
+              {errors.password && (
+                <span className="text-red-600">This field is required</span>
               )}
-            </span>
-            {errors.password && <span>This field is required</span>} */}
+
+              <span
+                onClick={handleShowPas}
+                className="cursor-pointer absolute right-4 top-3"
+              >
+                {showPassword ? (
+                  <IoMdEye className="text-2xl" />
+                ) : (
+                  <IoMdEyeOff className="text-2xl" />
+                )}
+              </span>
+            </div>
 
             <br />
             <br />
@@ -176,7 +136,7 @@ const Login = () => {
             </p>
           </form>
           <button
-            onClick={() => handleSocialLogin(handleGitHubLogin)}
+            onClick={() => handleSocialLogin(handleGoogleLogin)}
             className="btn w-full text-lg bg-[#2B3440] text-white"
           >
             <FcGoogle className="text-4xl" />

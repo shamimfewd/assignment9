@@ -15,8 +15,7 @@ const Register = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [registerError, setRegisterError] = useState("");
-  const [successRegister, SteSuccessRegister] = useState("");
-
+  
 
   // ----------------------------
   const {
@@ -34,7 +33,7 @@ const Register = () => {
     const { email, password, image, fullName } = data;
 
     setRegisterError("");
-    SteSuccessRegister("");
+    
 
     if (password.length < 6) {
       setRegisterError("password should be 6 characters");
@@ -53,8 +52,7 @@ const Register = () => {
 
     createUser(email, password)
       .then(() => {
-        updateUserProfile(fullName, image).then((result) => {
-          SteSuccessRegister(result);
+        updateUserProfile(fullName, image).then(() => {
           toast.success(
             "Congratulations! Your account has been successfully created🎉"
           );

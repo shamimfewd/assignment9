@@ -22,7 +22,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/updateprofile",
-        element: <UpdateProfile />,
+        element: (
+          <PrivateRoute>
+            <UpdateProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/register",
@@ -39,14 +43,6 @@ export const router = createBrowserRouter([
         loader: () => fetch("/property.json"),
       },
 
-      // {
-      //   path: "/about",
-      //   element: (
-      //     <PrivateRoute>
-      //       <About />
-      //     </PrivateRoute>
-      //   ),
-      // },
       {
         path: "/estate/:id",
         element: (
