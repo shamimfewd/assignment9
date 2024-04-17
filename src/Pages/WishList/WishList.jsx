@@ -4,6 +4,7 @@ import { getDataFromLocalStorage } from "../../Utils/LocalStorage";
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { IoIosPricetags } from "react-icons/io";
 import { CiLocationOn } from "react-icons/ci";
+import { Helmet } from "react-helmet-async";
 
 const WishList = () => {
   const wishProperty = useLoaderData();
@@ -24,6 +25,9 @@ const WishList = () => {
   }, [wishProperty]);
   return (
     <div className="max-w-7xl mx-auto my-24">
+      <Helmet>
+        <title>EasyDeals - Wish List</title>
+      </Helmet>
       <div role="tablist" className="tabs tabs-lifted">
         <input
           type="radio"

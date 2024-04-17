@@ -16,7 +16,7 @@ const Estate = ({ estate }) => {
   } = estate;
 
   return (
-    <div>
+    <div data-aos="fade-up"  data-aos-delay="300">
       <div className="card h-[35rem] bg-base-100 shadow-xl rounded-none p-4">
         <figure>
           <img className="h-[25rem]" src={image} alt="" />

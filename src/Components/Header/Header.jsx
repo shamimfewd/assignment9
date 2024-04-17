@@ -1,5 +1,3 @@
-// import React, { useRef, useState } from 'react';
-
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -38,11 +36,12 @@ const Header = () => {
             <div className="flex justify-center items-center h-full">
               <div className="space-y-4">
                 <h1 className="lg:text-6xl md:text-5xl text-4xl text-white">
-                  Lorem ipsum dolor sit amet.
+                Creating value in real estate.
                 </h1>
                 <p className="lg:w-2/3 md:w-2/3  mx-auto text-white">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Dicta eaque obcaecati voluptatum quos maxime sequi.
+                  When you join Hines, you are joining a private, family led
+                  firm with a rich history of transformative work in our
+                  communities
                 </p>
               </div>
             </div>
@@ -59,11 +58,12 @@ const Header = () => {
             <div className="flex justify-center items-center h-full">
               <div className="space-y-4">
                 <h1 className="lg:text-6xl md:text-5xl text-4xl text-white ">
-                  <span>Lorem ipsum dolor sit amet.</span>
+                Creating value in real estate.
                 </h1>
                 <p className="lg:w-2/3 md:w-2/3  mx-auto text-white">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Dicta eaque obcaecati voluptatum quos maxime sequi.
+                  When you join Hines, you are joining a private, family led
+                  firm with a rich history of transformative work in our
+                  communities
                 </p>
               </div>
             </div>
@@ -81,11 +81,12 @@ const Header = () => {
             <div className="flex justify-center items-center h-full">
               <div className="space-y-4">
                 <h1 className="lg:text-6xl md:text-5xl text-4xl text-white ">
-                  Lorem ipsum dolor sit amet.
+                Creating value in real estate.
                 </h1>
                 <p className="lg:w-2/3 md:w-2/3 mx-auto text-white">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Dicta eaque obcaecati voluptatum quos maxime sequi.
+                  When you join Hines, you are joining a private, family led
+                  firm with a rich history of transformative work in our
+                  communities
                 </p>
               </div>
             </div>

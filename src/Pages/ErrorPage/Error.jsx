@@ -8,7 +8,7 @@ const Error = () => {
         <title>EasyDeals - 404</title>
       </Helmet>
       <div>
-        <h2>404</h2>
+        <h2 className="text-7xl font-extrabold">404</h2>
         <h2 className="text-3xl font-bold text-red-500">Page Not Found!!</h2>
 
         <Link to={"/"}>
