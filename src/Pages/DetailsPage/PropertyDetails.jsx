@@ -2,6 +2,7 @@ import { useParams, useLoaderData, Link } from "react-router-dom";
 import { IoCheckmarkCircle } from "react-icons/io5";
 import { CiLocationOn } from "react-icons/ci";
 import { IoIosPricetags } from "react-icons/io";
+import { setDataInLocalStorage } from "../../Utils/LocalStorage";
 
 const PropertyDetails = () => {
   const data = useLoaderData();
@@ -9,6 +10,7 @@ const PropertyDetails = () => {
   const parsId = parseInt(id);
 
   const currentProperty = data.find((item) => item.id === parsId);
+
   const {
     image,
     estate_title,
@@ -20,6 +22,10 @@ const PropertyDetails = () => {
     status,
     facilities,
   } = currentProperty;
+
+  const handlePropertyList = () => {
+    setDataInLocalStorage(parsId);
+  };
   return (
     <div
       className="bg-cover  w-full bg-repeat bg-center bg-gradient-to-r from-sky-500 to-indigo-500"
@@ -74,11 +80,14 @@ const PropertyDetails = () => {
                   </li>
                 ))}
               </ul>
+
               <div className="card-actions justify-end">
                 <Link to={"/"}>
                   <button className="btn">Go Back</button>
                 </Link>
-                <button className="btn">Add to Cart</button>
+                <button onClick={handlePropertyList} className="btn">
+                  Wish List
+                </button>
               </div>
             </div>
           </div>

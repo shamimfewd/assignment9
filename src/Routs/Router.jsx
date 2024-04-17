@@ -8,6 +8,7 @@ import PropertyDetails from "../Pages/DetailsPage/PropertyDetails";
 import Estates from "../Components/Estates/Estates";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Error from "../Pages/ErrorPage/Error";
+import WishList from "../Pages/WishList/WishList";
 // import About from "../About/About";
 
 export const router = createBrowserRouter([
@@ -50,6 +51,12 @@ export const router = createBrowserRouter([
             <PropertyDetails />
           </PrivateRoute>
         ),
+        loader: () => fetch("/property.json"),
+      },
+
+      {
+        path: "/wishlist",
+        element: <WishList />,
         loader: () => fetch("/property.json"),
       },
     ],

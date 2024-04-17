@@ -72,7 +72,9 @@ const Nav = () => {
               </li>
             )}
 
-            
+            <li>
+              <NavLink to={"/wishlist"}>Wish List</NavLink>
+            </li>
 
             <li>
               <NavLink to={"/register"}>Register</NavLink>
