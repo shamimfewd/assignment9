@@ -17,27 +17,28 @@ const Estate = ({ estate }) => {
 
   return (
     <div>
-      <div className="card h-[35rem] bg-base-100 shadow-xl rounded-none">
+      <div className="card h-[35rem] bg-base-100 shadow-xl rounded-none p-4">
         <figure>
           <img className="h-[25rem]" src={image} alt="" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{estate_title}</h2>
-          <p className="flex items-center gap-x-2 font-bold">
-            <IoIosPricetags />
-             ${price}
+          <h2 className="card-title text-[#000000dc] font-bold">
+            {estate_title}
+          </h2>
+          <p className="flex items-center gap-x-2 font-bold text-[#000000dc] text-lg">
+            <IoIosPricetags />${price}
           </p>
-          <p className="flex gap-x-1 items-center">
+          <p className="flex gap-x-1 items-center text-[#000000dc]">
             <CiLocationOn className="text-lg" />
             {location}
           </p>
 
           <div>
-            <ul>
-              <h3 className="text-lg">Features:</h3>
+            <ul className="text-[#000000dc]">
+              <h3 className="text-lg font-bold">Features:</h3>
               {facilities.map((item, index) => (
                 <div key={index}>
-                  <li className="flex items-center text-green-600">
+                  <li className="flex items-center ">
                     <IoCheckmarkCircle />
                     {item}
                   </li>

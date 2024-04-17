@@ -1,5 +1,4 @@
 // import React, { useRef, useState } from 'react';
-import "animate.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -13,7 +12,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const Header = () => {
   return (
-    <div className="">
+    <div className="bg-[#FFFFFF]">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -30,7 +29,7 @@ const Header = () => {
       >
         <SwiperSlide>
           <div
-            className="bg-cover p-52  w-full bg-repeat bg-center bg-gradient-to-r from-sky-500 to-indigo-500"
+            className="bg-cover lg:p-52 md:p-24 p-4   w-full bg-repeat bg-center bg-gradient-to-r from-sky-600 to-indigo-600"
             style={{
               backgroundImage:
                 "url('https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
@@ -38,14 +37,12 @@ const Header = () => {
           >
             <div className="flex justify-center items-center h-full">
               <div className="space-y-4">
-                <h1 className="text-6xl text-white animate__animated  animate__fadeInDown">
+                <h1 className="lg:text-6xl md:text-5xl text-4xl text-white">
                   Lorem ipsum dolor sit amet.
                 </h1>
-                <p className="w-2/3 mx-auto text-white animate__animated animate__backInRight animate__delay-2s">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos
-                  perferendis obcaecati soluta velit debitis sapiente quas harum
-                  quasi, deserunt, enim, sit commodi quae facilis reprehenderit?
-                  Eius delectus explicabo natus officiis!
+                <p className="lg:w-2/3 md:w-2/3  mx-auto text-white">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Dicta eaque obcaecati voluptatum quos maxime sequi.
                 </p>
               </div>
             </div>
@@ -53,7 +50,7 @@ const Header = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="bg-cover p-52 w-full bg-repeat bg-center bg-gradient-to-r from-sky-500 to-indigo-500"
+            className="bg-cover lg:p-52 md:p-24 p-4  w-full bg-repeat bg-center bg-gradient-to-r from-sky-500 to-indigo-500"
             style={{
               backgroundImage:
                 "url('https://images.pexels.com/photos/1105754/pexels-photo-1105754.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
@@ -61,14 +58,12 @@ const Header = () => {
           >
             <div className="flex justify-center items-center h-full">
               <div className="space-y-4">
-                <h1 className="text-6xl text-white animate__animated  animate__fadeInDown">
+                <h1 className="lg:text-6xl md:text-5xl text-4xl text-white ">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </h1>
-                <p className="w-2/3 mx-auto text-white animate__animated animate__backInRight animate__delay-4s">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos
-                  perferendis obcaecati soluta velit debitis sapiente quas harum
-                  quasi, deserunt, enim, sit commodi quae facilis reprehenderit?
-                  Eius delectus explicabo natus officiis!
+                <p className="lg:w-2/3 md:w-2/3  mx-auto text-white">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Dicta eaque obcaecati voluptatum quos maxime sequi.
                 </p>
               </div>
             </div>
@@ -77,7 +72,7 @@ const Header = () => {
 
         <SwiperSlide>
           <div
-            className="bg-cover p-52  w-full bg-repeat bg-center bg-gradient-to-r from-cyan-500 to-blue-500"
+            className="bg-cover lg:p-52 md:p-24 p-4  w-full bg-repeat bg-center bg-gradient-to-r from-cyan-500 to-blue-500"
             style={{
               backgroundImage:
                 "url('https://images.pexels.com/photos/5502227/pexels-photo-5502227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
@@ -85,14 +80,12 @@ const Header = () => {
           >
             <div className="flex justify-center items-center h-full">
               <div className="space-y-4">
-                <h1 className="text-6xl text-white animate__animated  animate__fadeInDown">
+                <h1 className="lg:text-6xl md:text-5xl text-4xl text-white ">
                   Lorem ipsum dolor sit amet.
                 </h1>
-                <p className="w-2/3 mx-auto text-white animate__animated animate__backInRight animate__delay-15s">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos
-                  perferendis obcaecati soluta velit debitis sapiente quas harum
-                  quasi, deserunt, enim, sit commodi quae facilis reprehenderit?
-                  Eius delectus explicabo natus officiis!
+                <p className="lg:w-2/3 md:w-2/3 mx-auto text-white">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Dicta eaque obcaecati voluptatum quos maxime sequi.
                 </p>
               </div>
             </div>

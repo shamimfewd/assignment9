@@ -19,7 +19,7 @@ const Nav = () => {
     <div className="max-w-7xl mx-auto">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown z-50">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -110,13 +110,13 @@ const Nav = () => {
                 />
               </div>
 
-              <button onClick={handleSignOut} className="btn">
+              <button onClick={handleSignOut} className="btn bg-orange-600 text-white">
                 <CiLogout className="text-xl" /> Log Out
               </button>
             </>
           ) : (
             <>
-              <Link to={"/login"} className="btn">
+              <Link to={"/login"} className="btn btn-success text-white">
                 <CiLogin className="text-xl" /> <span>Login</span>
               </Link>
             </>
